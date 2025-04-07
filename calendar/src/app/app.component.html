@@ -1,5 +1,20 @@
+<p-dialog [(visible)]="visible" [modal]="true" [header]="selectedEvent?.title" [style]="{'width': '400px', 'background-color': 'grey'}" [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="content">
+        <div *ngIf="selectedEvent">
+            <p><strong>Start:</strong> {{ selectedEvent?.start | date:'medium' }}</p>
+            <p *ngIf="selectedEvent?.end"><strong>End:</strong> {{ selectedEvent?.end | date:'medium' }}</p>
+            <p *ngIf="selectedEvent?.extendedProps?.description"><strong>Description:</strong> {{ selectedEvent.extendedProps.description }}</p>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+<!--        <p-button icon="pi pi-pencil" (click)="editEvent(selectedEvent)" label="Edit" styleClass="p-button-sm"></p-button>-->
+<!--        <p-button icon="pi pi-trash" (click)="deleteEvent(selectedEvent)" label="Delete" styleClass="p-button-sm p-button-danger ml-2"></p-button>-->
+        <p-button icon="pi pi-times" (click)="visible = false" label="Close" styleClass="p-button-sm p-button-secondary ml-2"></p-button>
+    </ng-template>
+</p-dialog>
+
 <ng-container *ngIf="calendarOptions">
-  <full-calendar [options]="calendarOptions"></full-calendar>
+    <full-calendar class="full-calendar" [options]="calendarOptions"></full-calendar>
 </ng-container>
 
 <router-outlet></router-outlet>
