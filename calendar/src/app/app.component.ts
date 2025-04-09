@@ -14,7 +14,6 @@ import { DialogModule } from "primeng/dialog";
 	selector: 'app-root',
 	imports: [RouterOutlet,
 		CommonModule, // Add CommonModule to imports
-		RouterOutlet,
 		ButtonModule,
 		FullCalendarModule,
 		DialogModule],
